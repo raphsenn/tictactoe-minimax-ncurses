@@ -6,7 +6,7 @@ compile: playmain
 tictactoe.o: tictactoe.c tictactoe.h
 	$(CXX) -c tictactoe.c
 
-playmain.o:
+playmain.o: playmain.c tictactoe.h
 	$(CXX) -c playmain.c
 
 playmain: tictactoe.o playmain.o
