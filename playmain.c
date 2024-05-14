@@ -10,6 +10,7 @@ int main() {
    while (running) {
     int key = getch();    
     processUserInput(key); 
+    drawBoard(); 
   }
   endwin();
   return 0;

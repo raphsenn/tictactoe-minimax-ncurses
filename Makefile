@@ -3,7 +3,7 @@ CXX = clang
 
 compile: playmain
 
-tictactoe.o:
+tictactoe.o: tictactoe.c tictactoe.h
 	$(CXX) -c tictactoe.c
 
 playmain.o:
@@ -11,6 +11,9 @@ playmain.o:
 
 playmain: tictactoe.o playmain.o
 	$(CXX) -o playmain tictactoe.o playmain.o -lncurses
+
+run:
+	./playmain
 
 clean:
 	rm -f *.o
