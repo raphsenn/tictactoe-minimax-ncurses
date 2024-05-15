@@ -20,10 +20,6 @@ extern int lastMouseClickPosY;
 
 extern bool running;
 
-// ASCII Art strings for O and X.
-extern const char* O_ASCII_ART;
-extern const char* X_ASCII_ART;
-
 // ____________________________________________________________________________
 
 void initTerminal();

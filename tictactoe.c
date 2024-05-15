@@ -17,31 +17,6 @@ int sizeGridY;
 bool running;
 
 // ----------------------------------------------------------------------------
-const char* O_ASCII_ART =
-"                \n"
-"  ,ad8888ba,    \n"
-" d8\"'   `\"8b  \n"
-"d8'        `8b  \n"
-"88          88  \n"
-"88          88  \n"
-"Y8,        ,8P  \n"
-" Y8a.    .a8P   \n"
-"  `\"Y8888Y\"'  \n"
-"                \n";
-
-const char* X_ASCII_ART = 
-"         \n"
-"db    db \n"
-"`8b  d8' \n"
-" `8bd8'  \n"
-" .dPYb.  \n"
-".8P  Y8. \n"
-"YP    YP \n"
-"         \n";
-
-int currentPos = 0;
-
-// ----------------------------------------------------------------------------
 void initTerminal() {
   initscr();
   cbreak();
@@ -84,15 +59,9 @@ void drawBoard() {
   }
   // attroff(COLOR_PAIR(1) | A_REVERSE);
   
-  // Draw X or O. 
-  
   for (int row = 0; row < 3; row++) {
     for (int col = 0; col < 3; col++) {
-      if (*(boardPointer + col + row * 3) == 1) { 
-        attron(COLOR_PAIR(2) | A_REVERSE);
-        mvprintw(row * sizeGridY + sizeGridY / 4, col * sizeGridX + sizeGridX / 4, "%s", X_ASCII_ART); 
-        attroff(COLOR_PAIR(2) | A_REVERSE);
-      }
+    
     } 
   }
   refresh();
@@ -102,7 +71,6 @@ void drawBoard() {
 void processUserInput(int keycode) {
   switch (keycode) {
     case 113: running = false; break;
-    case 114: *(boardPointer + currentPos) = 1; currentPos++; break;
   
   }
 }
