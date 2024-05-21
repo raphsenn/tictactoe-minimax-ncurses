@@ -6,7 +6,7 @@
 class UserInput {
 public:
     int keycode_;
-    bool isEscape() { return 27; }
+    bool isEscape();
 };
 
 
@@ -20,8 +20,8 @@ public:
     static int Green;
     static int Red;
 
-    int getNumRows();
-    int getNumCols();
+    int getNumRows() { return numRows_; }
+    int getNumCols() { return numCols_; }
 
     // Constructor.
     TerminalManager();

@@ -10,6 +10,15 @@ private:
     int board[9];
     int* boardPointer;
 
+    int boardSizeX;
+    int boardSizeY;
+
+    int boardPosX;
+    int boardPosY;
+
+    int lastMouseClickPosX;
+    int lastMouseClickPosY;
+
     // Terminal manager for the window.
     TerminalManager *terminalManager_;
 

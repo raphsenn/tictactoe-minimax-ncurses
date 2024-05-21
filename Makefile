@@ -6,11 +6,12 @@ compile: main
 tictactoe.o: tictactoe.cpp tictactoe.h
 	$(CXX) -c tictactoe.cpp
 
-terminalmanager.o: terminalmanager.h
+terminalmanager.o: terminalmanager.h terminalmanager.cpp
 	$(CXX) -c terminalmanager.cpp
 
 main.o: main.cpp tictactoe.h terminalmanager.h
 	$(CXX) -c main.cpp
+
 
 main: tictactoe.o main.o terminalmanager.o
 	$(CXX) -o main tictactoe.o terminalmanager.o main.o -lncurses
