@@ -1,20 +1,23 @@
 
-CXX = clang
+CXX = clang++
 
-compile: playmain
+compile: main
 
-tictactoe.o: tictactoe.c tictactoe.h
-	$(CXX) -c tictactoe.c
+tictactoe.o: tictactoe.cpp tictactoe.h
+	$(CXX) -c tictactoe.cpp
 
-playmain.o: playmain.c tictactoe.h
-	$(CXX) -c playmain.c
+terminalmanager.o: terminalmanager.h
+	$(CXX) -c terminalmanager.cpp
 
-playmain: tictactoe.o playmain.o
-	$(CXX) -o playmain tictactoe.o playmain.o -lncurses
+main.o: main.cpp tictactoe.h terminalmanager.h
+	$(CXX) -c main.cpp
+
+main: tictactoe.o main.o terminalmanager.o
+	$(CXX) -o main tictactoe.o terminalmanager.o main.o -lncurses
 
 run:
-	./playmain
+	./main
 
 clean:
 	rm -f *.o
-	rm -f playmain
+	rm -f main
